@@ -198,6 +198,54 @@ button { font: inherit; cursor: pointer; background: transparent; color: inherit
   font-size: 14px; color: var(--text-3); margin-top: 56px;
   text-align: left; font-style: italic;
 }
+.report-entry {
+  margin: 36px 0; padding: 26px 28px;
+  background: var(--bg-2); border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.report-entry-eyebrow {
+  font-size: 11px; letter-spacing: .18em; color: var(--text-3);
+  text-transform: uppercase; font-weight: 600; margin-bottom: 6px;
+}
+.report-entry-title {
+  font-size: 22px; font-weight: 800; line-height: 1.2;
+  margin-bottom: 4px;
+}
+.report-entry-subtitle {
+  font-size: 14px; color: var(--accent-2); margin-bottom: 18px;
+  font-weight: 500;
+}
+.report-entry p {
+  font-size: 15px; margin: 14px 0; line-height: 1.7; color: var(--text);
+}
+.report-entry .verdict-tag {
+  display: inline-block; font-size: 10px; letter-spacing: .12em;
+  text-transform: uppercase; padding: 3px 8px; border-radius: 3px;
+  font-weight: 600; margin-left: 6px; vertical-align: middle;
+}
+.verdict-direct  { background: rgba(111,168,58,.15);  color: var(--green);    border: 1px solid rgba(111,168,58,.3); }
+.verdict-analysis{ background: rgba(217,70,239,.1);   color: var(--accent-2); border: 1px solid rgba(217,70,239,.3); }
+.report-entry .sources {
+  font-size: 12px; color: var(--text-3); margin-top: 16px;
+  padding-top: 14px; border-top: 1px solid var(--line);
+  line-height: 1.7;
+}
+.report-entry .sources a { color: var(--text-2); }
+.report-entry.grand {
+  border-color: var(--gold);
+  background: linear-gradient(90deg, rgba(245,195,68,.04), var(--bg-2));
+}
+.report-entry.grand .report-entry-eyebrow { color: var(--gold); }
+.report-entry .stats-line {
+  font-size: 13px; color: var(--text-2); margin-bottom: 14px;
+  padding: 8px 12px; background: var(--bg-3); border-radius: 4px;
+  letter-spacing: .03em;
+}
+.report-summary {
+  margin-top: 48px; padding: 24px 28px;
+  border-top: 2px solid var(--accent);
+  background: rgba(92,163,214,.03);
+}
 
 /* ── AWARDS DETAIL ──────────────────────────── */
 .section-head { margin-bottom: 28px; }
@@ -412,6 +460,7 @@ button { font: inherit; cursor: pointer; background: transparent; color: inherit
     <button class="tab" data-panel="methodology"><span class="tab-num">02</span>Methodology</button>
     <button class="tab" data-panel="awards"     ><span class="tab-num">03</span>The Awards</button>
     <button class="tab" data-panel="scores"     ><span class="tab-num">04</span>Scores</button>
+    <button class="tab" data-panel="report"     ><span class="tab-num">05</span>Report</button>
   </nav>
 
   <!-- ═══════════════════ HERO (default landing) ═══════════════════ -->
@@ -569,7 +618,7 @@ button { font: inherit; cursor: pointer; background: transparent; color: inherit
   <section class="panel" id="panel-scores">
     <div class="section-head">
       <h2>Scores</h2>
-      <p>All 188 achievements, weighted 0–11.5 across 8 threat categories. Core threats (ISAC, Twin, Zero Trust) carry weight 2.0; force-multipliers (AI, PPDR) 1.5; infra 1.0; generic 0.5. Filter, search, expand any card to inspect matched keywords.</p>
+      <p>All 188 achievements, weighted 0 to 11.5 across 8 threat categories. Core threats (ISAC, Twin, Zero Trust) carry weight 2.0; force-multipliers (AI, PPDR) 1.5; infra 1.0; generic 0.5. Filter, search, expand any card to inspect matched keywords.</p>
     </div>
 
     <div class="stats" id="stats"></div>
@@ -587,6 +636,128 @@ button { font: inherit; cursor: pointer; background: transparent; color: inherit
     </div>
 
     <div class="list" id="list"></div>
+  </section>
+
+  <!-- ═══════════════════ TAB 5 · REPORT ═══════════════════ -->
+  <section class="panel prose" id="panel-report">
+
+    <h3>Winner Verification Report</h3>
+
+    <p class="kicker" style="font-style: italic;">Published May 2026</p>
+
+    <p class="lead">Every claim in the stop6g.eu Threat Awards is based on publicly available official sources. Before publishing the awards we checked each winner against those sources. This document shows what we found. We believe that publishing our verification is more honest than not publishing it. Where our citations go beyond what the source directly states, we say so.</p>
+
+    <p>The source data is the SNS JU Key Achievements 2025 database. Every official source linked below is publicly accessible. The scoring methodology is described in full in the Methodology tab.</p>
+
+    <!-- AWARD 01 -->
+    <div class="report-entry">
+      <div class="report-entry-eyebrow">Award 01 · The Invisible Eye</div>
+      <div class="report-entry-title">6G-DISAC <span class="verdict-tag verdict-direct">Direct source</span></div>
+      <div class="report-entry-subtitle">Distributed ISAC Architecture</div>
+      <p>6G-DISAC (6G for Distributed Intelligent Sensing and Communication) is an EU Horizon Europe project running January 2024 to December 2026, Grant Agreement No. 101139130. It develops a distributed architecture for Integrated Sensing and Communication (ISAC) in 6G networks, enabling large-scale tracking of both connected users and passive objects across geographically separated nodes using phase-coherent distributed arrays and Reconfigurable Intelligent Surfaces (RIS).</p>
+      <p>Our citation states that the architecture tracks passive targets (individuals who carry no phone, who have not consented, who are simply present in the coverage area) and that there are no blind spots by design. This is supported directly by the project's own description: "large numbers of connected users and/or passive objects to be tracked." The phrase "passive objects" is their language, not ours. The distributed architecture eliminating non-line-of-sight scenarios is confirmed in their published EuCNC 2025 paper.</p>
+      <div class="sources">Sources · <a href="https://6gdisac-project.eu/about" target="_blank">6gdisac-project.eu/about</a> · <a href="https://cordis.europa.eu/project/id/101139130" target="_blank">cordis.europa.eu/project/id/101139130</a> · <a href="https://smart-networks.europa.eu/key_achievement/distributed-isac-architecture/" target="_blank">smart-networks.europa.eu/key_achievement/distributed-isac-architecture</a></div>
+    </div>
+
+    <!-- AWARD 02 -->
+    <div class="report-entry">
+      <div class="report-entry-eyebrow">Award 02 · The Ghost in the Network</div>
+      <div class="report-entry-title">SEASON <span class="verdict-tag verdict-analysis">Our analysis</span></div>
+      <div class="report-entry-subtitle">Optical MBoSDM transport infrastructure with AI/ML assisted operation</div>
+      <p>SEASON (SElf-mAnaged Sustainable high-capacity Optical Networks) is an EU Horizon Europe project running January 2023 to December 2025, Grant Agreement No. 101096120, total budget €6.39M. It designs an AI/ML-assisted digital twin for multi-band optical transport networks.</p>
+      <p>Our citation argues that the digital twin methodology proven here for fiber infrastructure is identical to what is being proposed for human behavioral modeling in projects like 6G-TWIN. This is our argument, not a direct description of what SEASON does. SEASON's digital twin models fiber optics, not people. We state this clearly: the award goes to SEASON because it scores highest in the Digital Twin category under the specialist rule, and because the methodology transfer from infrastructure twins to human twins is the precise mechanism described in the stop6g.eu text series on Digital Twins. The underlying technical claim about digital twin methodology is accurate. The connection to human surveillance is our analysis.</p>
+      <div class="sources">Sources · <a href="https://cordis.europa.eu/project/id/101096120" target="_blank">cordis.europa.eu/project/id/101096120</a> · <a href="https://trimis.ec.europa.eu/project/self-managed-sustainable-high-capacity-optical-networks" target="_blank">trimis.ec.europa.eu/project/self-managed-sustainable-high-capacity-optical-networks</a></div>
+    </div>
+
+    <!-- AWARD 03 -->
+    <div class="report-entry">
+      <div class="report-entry-eyebrow">Award 03 · The Oracle</div>
+      <div class="report-entry-title">6G-INTENSE <span class="verdict-tag verdict-direct">Direct source</span></div>
+      <div class="report-entry-subtitle">ISG ZSM PoC: Trustworthy Zero-touch Network and Service Management with XAI and LLMs</div>
+      <p>6G-INTENSE (Intent-driven NaTive AI architecturE supporting Compute-Network abstraction and Sensing at the Deep Edge) is an EU Horizon Europe project, Grant Agreement No. 101139266. The winning achievement demonstrates a proof-of-concept for zero-touch, closed-loop network management using AI for anomaly detection, XAI for root cause analysis, and LLMs for automated resolution, all without human intervention.</p>
+      <p>Our citation states that the system detects anomalies, determines root causes, and deploys mitigation autonomously in closed loop before a human is informed. This is confirmed in the project's own description: "closed-loop control mechanism detects and resolves anomalies" and "zero-touch" operation. The terms zero-touch and closed-loop are their terminology. The CORDIS entry explicitly describes the goal of "fully Autonomous Domains."</p>
+      <div class="sources">Sources · <a href="https://cordis.europa.eu/project/id/101139266" target="_blank">cordis.europa.eu/project/id/101139266</a> · <a href="https://6g-intense.eu" target="_blank">6g-intense.eu</a> · <a href="https://smart-networks.europa.eu/key_achievement/isg-zsm-poc-trustworthy-zero-touch-network-and-service-management-in-6g-networks-with-xai-and-llms/" target="_blank">smart-networks.europa.eu/key_achievement/isg-zsm-poc-trustworthy-zero-touch-network-and-service-management-in-6g-networks-with-xai-and-llms</a></div>
+    </div>
+
+    <!-- AWARD 04 -->
+    <div class="report-entry">
+      <div class="report-entry-eyebrow">Award 04 · The Permanent Suspect</div>
+      <div class="report-entry-title">iTrust6G <span class="verdict-tag verdict-direct">Direct source</span></div>
+      <div class="report-entry-subtitle">Intelligent Trust Framework</div>
+      <p>iTrust6G (Intelligent Trust and Security Orchestration for 6G Distributed Cloud Environments) is an EU Horizon Europe project, Grant Agreement No. 101139198, coordinated by i2CAT in Barcelona. Partners include Telefónica, Lenovo, the National Technical University of Athens, and Politecnico di Torino. It designs a zero-trust security architecture for 6G networks using AI/ML for continuous trust inference and behavioral monitoring.</p>
+      <p>Our citation states that trust is not granted once and maintained, but computed, scored, and re-evaluated in real time, and that the network models what you are likely to do and assigns a score accordingly. This is supported by their own documentation which explicitly uses "zero-trust principles" and "trust inference in 6G." Their published paper is titled "iTrust6G: Zero-Trust Security for 6G Networks." The observation that no appeal process is described in the specification is accurate; it is an observation about what the specification does not include, not an accusation.</p>
+      <div class="sources">Sources · <a href="https://sns-itrust6g.com" target="_blank">sns-itrust6g.com</a> · <a href="https://cordis.europa.eu/project/id/101139198" target="_blank">cordis.europa.eu/project/id/101139198</a> · <a href="https://i2cat.net/projects/itrust6g/" target="_blank">i2cat.net/projects/itrust6g</a></div>
+    </div>
+
+    <!-- AWARD 05 -->
+    <div class="report-entry">
+      <div class="report-entry-eyebrow">Award 05 · The Wallbreaker</div>
+      <div class="report-entry-title">ECO-eNET <span class="verdict-tag verdict-analysis">Our analysis</span></div>
+      <div class="report-entry-subtitle">Design, fabrication, and testing of a sub-THz wireless link</div>
+      <p>ECO-eNET (Efficient Confluent Edge Networks) is an EU Horizon Europe project, Grant Agreement No. 101139133, coordinated by Chalmers University of Technology, total budget €3.77M. It designs confluent edge networks combining radio including sub-THz, free-space optical, and fiber technologies. The winning achievement is the design, fabrication, and testing of a plasmonic sub-THz wireless link operating at 190 to 350 GHz.</p>
+      <p>Our citation states that at sub-THz frequencies, the physics of sensing is not a side effect of the communication system but a property of the medium. This is a statement about fundamental physics (at these frequencies the same signal that carries data also returns environmental information) and is accurate. The winning achievement is specifically a communication link, not a sensing system. We state this because the connection between sub-THz communication and sub-THz sensing is our argument about the medium, not a description of what ECO-eNET's achievement does.</p>
+      <div class="sources">Sources · <a href="https://eco-enet.eu" target="_blank">eco-enet.eu</a> · <a href="https://cordis.europa.eu/project/id/101139133" target="_blank">cordis.europa.eu/project/id/101139133</a> · <a href="https://smart-networks.europa.eu/key_achievement/design-fabrication-and-testing-of-a-sub-thz-wireless-link/" target="_blank">smart-networks.europa.eu/key_achievement/design-fabrication-and-testing-of-a-sub-thz-wireless-link</a></div>
+    </div>
+
+    <!-- AWARD 06 -->
+    <div class="report-entry">
+      <div class="report-entry-eyebrow">Award 06 · The Good Samaritan</div>
+      <div class="report-entry-title">TrialsNet <span class="verdict-tag verdict-direct">Direct source</span></div>
+      <div class="report-entry-subtitle">Advanced XR Capabilities over B5G during Live Events @26 GHz</div>
+      <p>TrialsNet is a large-scale trial project, Grant Agreement No. 101095871, deploying 13 use cases across Italy, Spain, Greece, and Romania. The winning achievement demonstrates end-to-end 5G Standalone at 26 GHz for live events, combining immersive XR and 360° fan experiences with AI-powered crowd monitoring.</p>
+      <p>Our citation states that the same antenna that streams the match to your headset is the antenna that tracks where you are standing, and that the dual-use is not hypothetical but operational. This is the most directly sourced citation in the set. The SNS JU's own Top-10 announcement states verbatim: "enabling real-time crowd safety monitoring and immersive fan experiences." Both functions are described in the same sentence by the EU body that funds the project. We did not identify the dual-use. They announced it.</p>
+      <div class="sources">Sources · <a href="https://smart-networks.europa.eu/sns-ju-unveils-its-2025-top-10-key-achievements-leading-europes-6g-innovation/" target="_blank">smart-networks.europa.eu/sns-ju-unveils-its-2025-top-10-key-achievements-leading-europes-6g-innovation</a> · <a href="https://smart-networks.europa.eu/key_achievement/advanced-xr-capabilities-over-b5g-during-live-events-26-ghz/" target="_blank">smart-networks.europa.eu/key_achievement/advanced-xr-capabilities-over-b5g-during-live-events-26-ghz</a></div>
+    </div>
+
+    <!-- AWARD 07 -->
+    <div class="report-entry">
+      <div class="report-entry-eyebrow">Award 07 · The Everywhere Machine</div>
+      <div class="report-entry-title">Hexa-X-II <span class="verdict-tag verdict-analysis">Our analysis</span></div>
+      <div class="report-entry-subtitle">6G End-to-end architecture blueprint</div>
+      <p>Hexa-X-II is the EU's flagship 6G academic project and the primary reference architecture initiative for European 6G design. The winning achievement is the 6G end-to-end architecture blueprint describing a four-layer system with a device-edge-cloud continuum, AI framework, and distributed intelligence placed as close as possible to the data source.</p>
+      <p>Our citation states that placing inference close to the data source means placing it inside the cell tower, close to where you stand. The "device-edge-cloud continuum" is their own term. The argument about proximity is our illustration of what that continuum means in physical terms, not a stated specification. The logical chain connecting edge compute to proximity to the human body is our analysis.</p>
+      <div class="sources">Sources · <a href="https://hexa-x-ii.eu/deliverables/" target="_blank">hexa-x-ii.eu/deliverables</a> · <a href="https://smart-networks.europa.eu/key_achievement/6g-end-to-end-architecture-blueprint/" target="_blank">smart-networks.europa.eu/key_achievement/6g-end-to-end-architecture-blueprint</a></div>
+    </div>
+
+    <!-- AWARD 08 -->
+    <div class="report-entry">
+      <div class="report-entry-eyebrow">Award 08 · The Last Horizon</div>
+      <div class="report-entry-title">6G-NTN <span class="verdict-tag verdict-direct">Direct source</span></div>
+      <div class="report-entry-subtitle">6G LEO based satellite network preliminary sizing</div>
+      <p>6G-NTN is a 36-month Research and Innovation Action funded under SNS JU, running January 2023 to December 2025, with 13 partners from 8 European countries. It designs and validates NTN integration into 6G, including LEO satellite constellation sizing for C-band direct to smartphones and Q/V-band direct to vehicles, HAPS platforms, and a 3D multi-layered network architecture.</p>
+      <p>Our citation states that once the constellation is launched it cannot be recalled, and that 6G-NTN is doing the math while the decision is still a spreadsheet. The satellite sizing deliverable is confirmed at 6g-ntn.eu. The irreversibility of satellite deployment is a physical fact. The "spreadsheet" description refers to the current stage of the work and is accurate. The project is in design and validation, not deployment.</p>
+      <div class="sources">Sources · <a href="https://6g-ntn.eu/results" target="_blank">6g-ntn.eu/results</a> · <a href="https://cordis.europa.eu/project/id/101096384" target="_blank">cordis.europa.eu/project/id/101096384</a></div>
+    </div>
+
+    <!-- AWARD 09 -->
+    <div class="report-entry">
+      <div class="report-entry-eyebrow">Award 09 · The Green Curtain</div>
+      <div class="report-entry-title">Hexa-X-II <span class="verdict-tag verdict-analysis">Our analysis</span></div>
+      <div class="report-entry-subtitle">6G End-to-end architecture blueprint</div>
+      <p>Hexa-X-II wins this award because it has the highest overall weighted danger score in the dataset while also containing sustainability and privacy vocabulary in its description. Among the 48 achievements that contain at least two sustainability vocabulary terms, Hexa-X-II scores highest.</p>
+      <p>Our citation states that the Green Curtain is not awarded for hypocrisy but for the gap between the first paragraph and the rest of the document. This is an observation about what the scoring methodology reveals when applied to the full dataset: the project with the most comprehensive surveillance-capable architecture also uses the most sustainability language. We do not claim the authors are being dishonest. We observe that the methodology produces this result and consider it worth naming.</p>
+      <div class="sources">Sources · <a href="https://hexa-x-ii.eu" target="_blank">hexa-x-ii.eu</a> · <a href="https://smart-networks.europa.eu/key_achievement/6g-end-to-end-architecture-blueprint/" target="_blank">smart-networks.europa.eu/key_achievement/6g-end-to-end-architecture-blueprint</a></div>
+    </div>
+
+    <!-- GRAND PRIX -->
+    <div class="report-entry grand">
+      <div class="report-entry-eyebrow">Award ★ · The Full Stack · Grand Prix</div>
+      <div class="report-entry-title">Hexa-X-II <span class="verdict-tag verdict-analysis">Our analysis</span></div>
+      <div class="report-entry-subtitle">6G End-to-end architecture blueprint</div>
+      <div class="stats-line">Weighted score: <b>8.0</b> · Categories matched: ISAC, Digital Twin, AI Predictive, Zero Trust, Edge/Cloud</div>
+      <p>Hexa-X-II wins the Grand Prix with the highest overall weighted danger score in the 188-achievement dataset. The architecture explicitly describes an ISAC sensing layer, Network Digital Twins, AI/ML orchestration, trustworthiness and zero-trust controls, and a device-edge-cloud continuum, all in a single reference architecture document.</p>
+      <p>Our citation states that Hexa-X-II describes the infrastructure on which a surveillance system could be built without additional specification. This is our analysis of what the architecture enables, not a description of its stated purpose. The stated purpose is a flexible, sustainable, human-centric 6G platform. Our analysis is that the same architecture, under different governance, enables the functions described across the stop6g.eu text series. These two things are not contradictory. A reference architecture is designed to be general. That generality is precisely what we are describing.</p>
+      <div class="sources">Sources · <a href="https://hexa-x-ii.eu/deliverables/" target="_blank">hexa-x-ii.eu/deliverables</a> · <a href="https://smart-networks.europa.eu/key_achievement/6g-end-to-end-architecture-blueprint/" target="_blank">smart-networks.europa.eu/key_achievement/6g-end-to-end-architecture-blueprint</a></div>
+    </div>
+
+    <div class="report-summary">
+      <h3 style="margin-top:0;border:0;padding:0;">Summary</h3>
+      <p>Six awards are based directly on official language from the SNS JU or the winning projects themselves. Four involve an analytical argument that goes beyond what the source directly states. In all four cases we have identified this clearly above. The scoring methodology that produced these winners is fully reproducible from the CSV data and the script available at <a href="https://stop6g.eu/github" target="_blank">stop6g.eu/github</a>.</p>
+    </div>
+
+    <p class="punchline">The battle started today.</p>
+
+    <p class="signoff">stop6g.eu</p>
   </section>
 
   <footer class="footer">
